@@ -103,7 +103,8 @@ autoUpdater.on("update-downloaded", (info) => {
 });
 
 ipcMain.on("quit-and-install", (x) => {
-  autoUpdater.quitAndInstall();
+  const isSilent = true;
+  autoUpdater.quitAndInstall(isSilent);
 });
 
 app.on("ready", function () {
