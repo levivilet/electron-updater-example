@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Electron Updater Example</title>
-</head>
-<body>
-  Current version: <span id="version">vX.Y.Z</span>
-  <div id="messages"></div>
-<script>
-// Display the current version
-let version = window.location.hash.substring(1);
-document.getElementById('version').innerText = version;
+  <head>
+    <title>Electron Updater Example</title>
+  </head>
+  <body>
+    Current version: <span id="version">vX.Y.Z</span>
+    <div id="messages"></div>
 
-// Listen for messages
-const {ipcRenderer} = require('electron');
-ipcRenderer.on('message', function(event, text) {
-  var container = document.getElementById('messages');
-  var message = document.createElement('div');
-  message.innerHTML = text;
-  container.appendChild(message);
-})
-</script>
-</body>
+    <button id="QuitAndInstall">quit and install</button>
+    <script>
+      // Display the current version
+      let version = window.location.hash.substring(1);
+      document.getElementById("version").innerText = version;
+
+      // Listen for messages
+      const { ipcRenderer } = require("electron");
+      ipcRenderer.on("message", function (event, text) {
+        var container = document.getElementById("messages");
+        var message = document.createElement("div");
+        message.innerHTML = text;
+        container.appendChild(message);
+      });
+
+      const quitAndInstall = () => {
+        console.log("send");
+        ipcRenderer.send("quit-and-install");
+      };
+
+      const $QuitAndInstall = document.getElementById("QuitAndInstall");
+      $QuitAndInstall.onclick = quitAndInstall;
+    </script>
+  </body>
 </html>
