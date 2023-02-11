@@ -104,7 +104,8 @@ autoUpdater.on("update-downloaded", (info) => {
 
 ipcMain.on("quit-and-install", (x) => {
   const isSilent = true;
-  autoUpdater.quitAndInstall(isSilent);
+  const runAfter = true;
+  autoUpdater.quitAndInstall(isSilent, runAfter);
 });
 
 app.on("ready", function () {
