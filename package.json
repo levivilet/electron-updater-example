@@ -8,13 +8,13 @@
     "publish": "electron-builder -p always"
   },
   "devDependencies": {
-    "electron": "^14.0.1",
-    "electron-builder": "^22.11.7",
-    "electron-notarize": "^1.1.1"
+    "electron": "^23.0.0",
+    "electron-builder": "^23.6.0",
+    "electron-notarize": "^1.2.2"
   },
   "dependencies": {
-    "electron-log": "^4.4.1",
-    "electron-updater": "^4.3.9"
+    "electron-log": "^4.4.8",
+    "electron-updater": "^5.3.0"
   },
   "build": {
     "appId": "com.github.levivilet.electronupdaterexample",
